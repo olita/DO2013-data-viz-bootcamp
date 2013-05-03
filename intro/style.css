@@ -1,0 +1,22 @@
+/* custom css and js files included at the top level of your presentation will
+ * will be included in your presentation */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-repeat: repeat;
+  background-image:url('slides/images/bg.jpg');
+}
+
+.content {
+  background-color: white;
+  font: 300 14px "Open Sans";
+  color: black;
+}
+
+h1 {
+  font: 800 72px "Open Sans";
+}
+
+h2, h3, p {
+  font: 400 "Open Sans";
+}

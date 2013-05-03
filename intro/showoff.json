@@ -1,0 +1,14 @@
+{
+    "author": "Nick Ruest, John Fink", 
+    "description": "This session will discuss cloud computing with a particular emphasis on locally implementable cloud technologies and how Permafrost, a new initiative in Ontario, is leveraging cheap hardware to build a resilient data store.", 
+    "name": "Strong and Free: Building a Resilient Data Store North of the Border", 
+    "pause_msg": "Paused !!!", 
+    "sections": [
+        {
+            "section": "slides"
+        }
+    ], 
+    "templates": {
+        "special": "simple.tpl"
+    }
+}
