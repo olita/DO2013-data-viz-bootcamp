@@ -101,9 +101,13 @@ We want to go from [here](http://0.0.0.0:8000/d3example/), to [here](http://0.0.
 5. Now that we have (at least kinda, hopefully) an idea of how to create a pie chart, let's identify some things we'll need to do with our dataset to get the visualization we want; the number of numbers in each collection.
 
     What do we need plug in from our dataset?
+    
     Do we need to create any new values?
+    
     _Hint_: We'll need to figure out a way to get the uniq values in a given column
+    
     _Hint_: We'll need to count those how many their are for each uniq value
+    
     _Hint_: You should totally use underscore!
 
 6. Now, let's make this happen!
@@ -111,9 +115,13 @@ We want to go from [here](http://0.0.0.0:8000/d3example/), to [here](http://0.0.
 7. If you want to learn more, check out:
     
     [d3 Gallery](https://github.com/mbostock/d3/wiki/Gallery)
+    
     [d3 Tutorial](http://alignedleft.com/tutorials/d3/)
+    
     [vogievetsky](http://vogievetsky.github.io/IntroD3/#1)
+    
     [Theory stuff](http://www.amazon.ca/Designing-Data-Visualizations-Noah-Iliinsky/dp/1449312284/)
+    
     [@Sarah0s - Access 2012](http://www.youtube.com/watch?v=U5gAHdlobsM)
   
 1000. We will probably what a better data format to work with; json. BOET.
