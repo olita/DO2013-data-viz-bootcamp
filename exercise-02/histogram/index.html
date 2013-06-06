@@ -33,96 +33,73 @@ body {
   <h1>Ryerson University Library Catalogue Distribution By Year</h1>
 <script>
 
-// Generate an Irwin–Hall distribution of 10 random variables.
-//var values = d3.range(1000).map(d3.random.irwinHall(10));
+d3.json("./data/d3Data-small.json", function(data) {
+  var values = _(data).map(function(record) {
+    var field260 = _(record.fields).find(function(field) { return field[0] == "260" })
+    var fieldc = _(_(field260).last()).find(function(field) { return field[0] == "c" })
+    return _(fieldc).last();
+  })
+  values = _(values).map(function(value) { return value.match(/\d{4}/)[0] })
+  renderValues(values);
+})
 
-/*
-var values = d3.json("./data/sample.json", function(error, data) {
-    console.log(data)
-//    data = convert_data(data);
+function renderValues(values) {
+  // A formatter for counts.
+  var formatCount = d3.format(",.0f");
 
-//    data.forEach(function(d) {
-//      d.num = +d.num;
-//    });
+  var margin = {top: 10, right: 30, bottom: 30, left: 30},
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
 
-//    g.append("path")
-//        .attr("d", arc)
-//        .style("fill", function(d) { return color(d.data.series_name); });
-  });
-  */
-var values = [
-	1995,
-	1995,
-	1995,
-	1991,
-	1991,
-	1992,
-	1992,
-	1992,
-	1999,
-	1990,
-	1990,
-	1990,
-	1990,
-	1990,
-	1990,
-	1990,
-	2012
-];
+  var min = _(values).min()
+  var max = _(values).max()
 
-// A formatter for counts.
-var formatCount = d3.format(",.0f");
+  var x = d3.scale.linear()
+      .domain([min, max])
+      .range([0, width]);
 
-var margin = {top: 10, right: 30, bottom: 30, left: 30},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+  // Generate a histogram using uniformly-spaced bins.
+  var data = d3.layout.histogram()
+      .bins(x.ticks(max - min))
+      (values);
 
-var x = d3.scale.linear()
-    .domain([1980, 2015])
-    .range([0, width]);
+  var y = d3.scale.linear()
+      .domain([0, d3.max(data, function(d) { return d.y; })])
+      .range([height, 0]);
 
-// Generate a histogram using twenty uniformly-spaced bins.
-var data = d3.layout.histogram()
-    .bins(x.ticks(35))
-    (values);
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom")
+      .tickFormat(d3.format(""));
 
-var y = d3.scale.linear()
-    .domain([0, d3.max(data, function(d) { return d.y; })])
-    .range([height, 0]);
+  var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
+  var bar = svg.selectAll(".bar")
+      .data(data)
+      .enter().append("g")
+      .attr("class", "bar")
+      .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  bar.append("rect")
+      .attr("x", 1)
+      .attr("width", width / (max - min) - 2)
+      .attr("height", function(d) { return height - y(d.y); });
 
-var bar = svg.selectAll(".bar")
-    .data(data)
-    .enter().append("g")
-    .attr("class", "bar")
-    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+  bar.append("text")
+      .attr("dy", ".75em")
+      .attr("y", 6)
+      .attr("x", (width / (max - min)) / 2)
+      .attr("text-anchor", "middle")
+      .text(function(d) { return formatCount(d.y); });
 
-bar.append("rect")
-    .attr("x", 1)
-//    .attr("width", x(data[0].dx) - 1)
-	.attr("width", 40)
-    .attr("height", function(d) { return height - y(d.y); });
-
-bar.append("text")
-    .attr("dy", ".75em")
-    .attr("y", 6)
-//    .attr("x", x(data[0].dx) / 2)
-	.attr("x", 20)
-    .attr("text-anchor", "middle")
-    .text(function(d) { return formatCount(d.y); });
-
-svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+}
 
 </script>
