@@ -1,0 +1,31 @@
+{
+  "fields": [
+    [ "005", "19980622213320.3" ], 
+    [ "008", "860530s1986  onc       001   eng d" ], 
+    [ "020", " ", " ", [ [ "a", "0195405080" ], [ "c", "$29.95" ] ] ], 
+    [ "040", " ", " ", [ [ "a", "CaOTU" ], [ "b", "eng" ], [ "c", "CaOONL" ], [ "d", "WaOLN" ], [ "d", "CaOTR" ] ] ], 
+    [ "043", " ", " ", [ [ "a", "n-cn-on" ] ] ], 
+    [ "050", " ", "0", [ [ "a", "FC3097.7" ], [ "b", ".D46 1986" ] ] ], 
+    [ "082", "0", "0", [ [ "a", "971.3/54119" ] ] ], 
+    [ "100", "1", " ", [ [ "a", "Dendy, William," ], [ "d", "1948-" ] ] ], 
+    [ "245", "1", "0", [ [ "a", "Toronto observed :" ], [ "b", "its architecture, patrons, and history /" ], [ "c", "William Dendy & William Kilbourn ; photographs by Bruce Litteljohn & William Dendy." ] ] ], 
+    [ "260", " ", " ", [ [ "a", "Toronto [Ont.] :" ], [ "b", "Oxford University Press," ], [ "c", "1986." ] ] ], 
+    [ "300", " ", " ", [ [ "a", "327 p. :" ], [ "b", "ill." ] ] ], 
+    [ "500", " ", " ", [ [ "a", "Includes index." ] ] ], 
+    [ "650", " ", "0", [ [ "a", "Architecture" ], [ "z", "Ontario" ], [ "z", "Toronto" ], [ "x", "History." ] ] ], 
+    [ "650", " ", "0", [ [ "a", "Architects and patrons" ], [ "z", "Ontario" ], [ "z", "Toronto" ], [ "x", "History." ] ] ], 
+    [ "650", " ", "0", [ [ "a", "Historic buildings" ], [ "z", "Ontario" ], [ "z", "Toronto." ] ] ], 
+    [ "651", " ", "0", [ [ "a", "Toronto (Ont.)" ], [ "x", "Buildings, structures, etc." ], [ "x", "History." ] ] ], 
+    [ "700", "1", " ", [ [ "a", "Kilbourn, William," ], [ "d", "1926-1995." ] ] ], 
+    [ "700", "1", " ", [ [ "a", "Litteljohn, Bruce M.," ], [ "d", "1935-" ] ] ], 
+    [ "907", " ", " ", [ [ "a", ".b10259892" ], [ "b", "main6" ], [ "c", "-" ] ] ], 
+    [ "902", " ", " ", [ [ "a", "130224" ] ] ], 
+    [ "998", " ", " ", [ [ "b", "4" ], [ "c", "991001" ], [ "d", "m" ], [ "e", "b" ], [ "f", "-" ], [ "g", "0" ] ] ], 
+    [ "935", " ", " ", [ [ "a", "AAC-6982" ] ] ], 
+    [ "910", " ", " ", [ [ "d", "jf" ] ] ], 
+    [ "945", " ", " ", [ [ "l", "main6" ] ] ], 
+    [ "945", " ", " ", [ [ "l", "main6" ] ] ], 
+    [ "945", " ", " ", [ [ "l", "main6" ] ]
+    ]
+  ], "leader": "01158cam a2200337 a 4500", "type": "marc-hash", "version": [ 1, 0 ]
+}
