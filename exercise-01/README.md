@@ -100,12 +100,11 @@ We want to go from [here](http://0.0.0.0:8000/d3example/), to [here](http://0.0.
 
 5. Now that we have (at least kinda, hopefully) an idea of how to create a pie chart, let's identify some things we'll need to do with our dataset to get the visualization we want; the number of numbers in each collection.
 
-	- What do we need to plug in from our dataset?
-	- Do we need to create any new values?
-	<br/>Hint: We'll need to figure out a way to get the unique values in a given column
-	<br/>Hint: We'll need to count those how many their are for each unique value
-	<br/>Hint: You should totally use underscore!
-	<br/><br/>
+   - What do we need plug in from our dataset?
+   - Do we need to create any new values?
+    Hint: We'll need to figure out a way to get the uniq values in a given column
+    Hint: We'll need to count those how many their are for each uniq value
+    Hint: You should totally use underscore!
 
 6. Now, let's make this happen!
 

@@ -113,13 +113,12 @@ We want to go from [here](http://0.0.0.0:8000/d3example/), to [here](http://0.0.
 
 5. Now that we have (at least kinda, hopefully) an idea of how to create a histogram, let's identify some things we'll need to do with our dataset to get the visualization we want.
 
-	- How must we modify our data to get this visualization to work?
-	<br/>Hint: We'll have to ensure our values are __data-centric__
-	- Why might we have problems using a much larger dataset?
-	<br/>Hint: We have to process __all__ the data, not just the bits that we're visualizing
-    - What aspects of a specific data format might make visualization easier?
-    <br/>Hint: Think about how we select specific pieces of data
-    <br/><br/>
+   - How must we modify our data to get this visualization to work?
+    Hint: We'll have to ensure our values are __data-centric__
+   - Why might we have problems using a much larger dataset?
+	Hint: We have to process __all__ the data, not just the bits that we're visualizing
+   - What aspects of a specific data format might make visualization easier?
+	Hint: Think about how we select specific pieces of data
 
 6. Now, let's make this happen!
 
