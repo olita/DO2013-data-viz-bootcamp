@@ -10,4 +10,8 @@ The first dataset is a sub-section of metadata from a library digitization progr
 
 ### Exercise 2
 
-The second data is a selection of MARC data. We explore this data using a [histogram](http://bl.ocks.org/mbostock/3048450) to: 1) show the portion of electronic vs. print over time 2) Subject growth over time 3) Number of a given format in a collection over time 4) Comparison with expenditures.
+The second data is a selection of MARC data. We explore this data using a [histogram](http://bl.ocks.org/mbostock/3048450) to do things like:
+
+1. Show the distribution of material publication over time
+2. Show proportion of materials by subject
+3. Show number of items in a given format in a collection
