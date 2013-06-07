@@ -14,36 +14,12 @@ body {
 }
 
 </style>
-<script src="./js/d3.v3.js"></script>
-<script src="./js/underscore.js"></script>
-<script src="./js/jquery.min.js"></script>
+<script src="js/d3.v3.js"></script>
+<script src="js/jquery.min.js"></script>
 </head>
 <body>
   <h1>York University Library Digital Collection Series Counts</h1>
 <script>
-  //need variable for uniq relation_ispartofseries column values
-  //need variable for count of relation_ispartofseries uniq column values
-  var convert_data = function(data) {
-    var converted = [];
-    console.log(data)
-
-    data.forEach(function(d) {
-      var record;
-
-      if(record = _.find(converted, function(obj) { return obj.series_name == d.relation_ispartofseries })) {
-        record.num++;
-        record = null;
-      } else {
-        converted.push({
-          series_name: d.relation_ispartofseries,
-          num:         1
-        });
-      }
-    });
-
-    return converted;
-  };
-
   var width = 960,
       height = 650,
       radius = Math.min(width, height) / 2;
@@ -66,30 +42,37 @@ body {
       .attr("height", height)
     .append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-  
-  d3.json("./data/d3Data-small.json", function(error, data) {
-    console.log(data)
-    data = convert_data(data);
 
-    data.forEach(function(d) {
-      d.num = +d.num;
+d3.json("data/d3Data-small.json", function(error, rawdata) {
+    console.log(rawdata);
+    var data = [];
+    var c = {};
+    rawdata.forEach(function(d) {
+        if (c[d.relation_ispartofseries]) {
+            c[d.relation_ispartofseries] += 1;
+        } else {
+            c[d.relation_ispartofseries] = 1;
+        }
+    });
+    Object.keys(c).forEach(function(k) {
+        data.push({"label": k, "num": c[k]});
     });
 
-    //need uniq values of 'relation_ispartofseries'
-    var g = svg.selectAll(".arc")
-        .data(pie(data))
-        .enter().append("g")
-        .attr("class", "arc")
-        .on("mouseover", function(d) {
-          $("#series_name").html(d.data.series_name || "[No series name]");
-          $("#num").html(d.data.num);
-        });
+    Object.keys(data).forEach(function(d) {
+        var g = svg.selectAll(".arc")
+            .data(pie(data))
+            .enter().append("g")
+            .attr("class", "arc")
+            .on("mouseover", function(d) {
+              $("#series_name").html(d.data.label || "[No series name]");
+              $("#num").html(d.data.num);
+            });
 
-    g.append("path")
-        .attr("d", arc)
-        .style("fill", function(d) { return color(d.data.series_name); });
-  });
-
+        g.append("path")
+            .attr("d", arc)
+            .style("fill", function(d) { return color(d.data.label); });
+    });
+});
 </script>
 
 <div id="info">
