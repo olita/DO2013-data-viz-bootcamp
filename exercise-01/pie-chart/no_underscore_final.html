@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Based on this example http://bl.ocks.org/mbostock/3887235 -->
+<meta charset="utf-8">
+<style type="text/css">
+
+body {
+  font: 10px sans-serif;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+</style>
+<script src="js/d3.v3.js"></script>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+  <h1>York University Library Digital Collection Series Counts</h1>
+<script>
+  var width = 960,
+      height = 650,
+      radius = Math.min(width, height) / 2;
+
+  //maybe we should select some random colours
+  var color = d3.scale.ordinal()
+  .range(["grey", "steelblue"]);
+
+  var arc = d3.svg.arc()
+      .outerRadius(radius)
+      .innerRadius(0);
+
+  var pie = d3.layout.pie()
+      .sort(null)
+      //need to grab uniq values column 'relation_ispartofseries', then count
+      .value(function(d) { return d.num; });
+
+  var svg = d3.select("body").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+    .append("g")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+d3.json("data/d3Data-small.json", function(error, rawdata) {
+    console.log(rawdata);
+    var data = [];
+    var c = {};
+    rawdata.forEach(function(d) {
+        if (c[d.relation_ispartofseries]) {
+            c[d.relation_ispartofseries] += 1;
+        } else {
+            c[d.relation_ispartofseries] = 1;
+        }
+    });
+    Object.keys(c).forEach(function(k) {
+        data.push({"label": k, "num": c[k]});
+    });
+
+    Object.keys(data).forEach(function(d) {
+        var g = svg.selectAll(".arc")
+            .data(pie(data))
+            .enter().append("g")
+            .attr("class", "arc")
+            .on("mouseover", function(d) {
+              $("#series_name").html(d.data.label || "[No series name]");
+              $("#num").html(d.data.num);
+            });
+
+        g.append("path")
+            .attr("d", arc)
+            .style("fill", function(d) { return color(d.data.label); });
+    });
+});
+</script>
+
+<div id="info">
+  <div><strong>Series Name</strong>: <span id="series_name"></span></div>
+  <div><strong>Number of records</strong>: <span id="num"></span></div>
+</div>
+</body>
+</html>
