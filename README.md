@@ -23,3 +23,15 @@ The second data is a selection of MARC data. We explore this data using a [histo
 3. `python -m SimpleHTTPServer`
 4. Check out Exercise 1, and Exercise 2.
 5. If you think it should be better (it totally can!) fork! If you want to share back, give us a pull request.
+
+### Resources
+
+- [d3 Gallery](https://github.com/mbostock/d3/wiki/Gallery)
+- [d3 Tutorial](http://alignedleft.com/tutorials/d3/)
+- [vogievetsky - d3 Presentation](http://vogievetsky.github.io/IntroD3/#1)
+- [Designing Data Visualizations (Book)](http://www.amazon.ca/Designing-Data-Visualizations-Noah-Iliinsky/dp/1449312284/)
+- [Dead easy data visualization for libraries - Sarah Severson (Access 2012)](http://www.youtube.com/watch?v=U5gAHdlobsM)
+- [On Dentographs, A New Method of Visualizing Library Collections](http://journal.code4lib.org/articles/6300)
+- [Visualizing Library Statistics using Open Flash Chart 2 and Drupal](http://journal.code4lib.org/articles/7812)
+- [Interpreting MARC: Where’s the Bibliographic Data?](http://journal.code4lib.org/articles/3832)
+
