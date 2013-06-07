@@ -15,3 +15,11 @@ The second data is a selection of MARC data. We explore this data using a [histo
 1. Show the distribution of material publication over time
 2. Show proportion of materials by subject
 3. Show number of items in a given format in a collection
+
+### Getting Started
+
+1. Clone the repo: `git clone https://github.com/olita/DO2013-data-viz-bootcamp.git`
+2. `cd DO2013-data-viz-bootcamp`
+3. `python -m SimpleHTTPServer`
+4. Check out Exercise 1, and Exercise 2.
+5. If you think it should be better (it totally can!) fork! If you want to share back, give us a pull request.
