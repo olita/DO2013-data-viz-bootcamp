@@ -133,4 +133,4 @@ If you want to learn more, check out:
 - [@Sarah0s - Access 2012](http://www.youtube.com/watch?v=U5gAHdlobsM)
 - [On Dentographs, A New Method of Visualizing Library Collections](http://journal.code4lib.org/articles/6300)
 - [Visualizing Library Statistics using Open Flash Chart 2 and Drupal](http://journal.code4lib.org/articles/7812)
-
+- [Interpreting MARC: Where’s the Bibliographic Data?](http://journal.code4lib.org/articles/3832)
